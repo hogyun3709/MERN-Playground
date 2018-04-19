@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { hot } from "react-hot-loader";
 import { BrowserRouter, Route } from "react-router-dom";
-import { Button, Icon } from "semantic-ui-react";
+// import { Button, Icon } from "semantic-ui-react";
 
-const header = () => <h2>header</h2>;
+import Header from "base/Header";
 const DashBoard = () => <h2>DashBoard</h2>;
-const Survey = () => <h2>Survey</h2>;
+const SurveyNew = () => <h2>SurveyNew</h2>;
 const Landing = () => <h2>Landing</h2>;
 
 class App extends Component {
@@ -14,7 +13,10 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <Route path="/" component={Landing}/>
+            <Header />
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/surveys" component={DashBoard} />
+            <Route path="/surveys/new" component={SurveyNew} />
           </div>
         </BrowserRouter>
       </div>
@@ -22,9 +24,10 @@ class App extends Component {
   }
 }
 
-export default hot(module)(App);
+export default App;
 
-{/* <header className="App-header">
+{
+  /* <header className="App-header">
   <h1 className="App-title">Welcome to React</h1>
 </header>
 <p className="App-intro">
@@ -48,4 +51,5 @@ export default hot(module)(App);
   <Button.Content visible>Sign-up for a Pro account</Button.Content>
   <Button.Content hidden>$12.99 a month</Button.Content>
 </Button>
-<a href="/auth/google">Sign In with Google</a> */}
+<a href="/auth/google">Sign In with Google</a> */
+}
