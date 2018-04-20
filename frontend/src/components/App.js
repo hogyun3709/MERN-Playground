@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import { Button, Icon } from "semantic-ui-react";
 
-import Header from "base/Header";
+import Header from "./Header";
 const DashBoard = () => <h2>DashBoard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
 const Landing = () => <h2>Landing</h2>;
