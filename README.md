@@ -9,5 +9,11 @@ Any questions related to this repo email me to hogyun3709@gmail.com.
 
 Especailly very beignner of MERN stack web development, dont hesitate to ask questions related with the project sturctures.
 
-Following repository has several hidden configuration files which included personal credential keys about such mongodb, googleAPI and so on.
+Following repository has several hidden configuration files (config.js and .env) which included personal credential keys about such mongodb, googleAPI and so on under backend>config>"config.js" file.
+
+You should create your own "config.js" file.
+
+This READ.ME will improve as the project grows.
+
+Last update :: 2018-4-20
 
