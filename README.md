@@ -5,7 +5,7 @@ This repo focuses on well made MERN project structure which follows MVC pattern 
 
 If you looking for building specific features like CRUD, User Auth, Comments, Likes and etc, I recommand to look others' works.
 
-Any questions related to this repo email me to hogyun3709@gmail.com.
+Any questions related to this repo, create issues or email me to hogyun3709@gmail.com but rather prefer to make issues.
 
 Especailly very beignner of MERN stack web development, dont hesitate to ask questions related with the project sturctures.
 
