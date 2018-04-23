@@ -10,6 +10,8 @@
 /build
 /src/semantic/dist
 /src/semantic/src
+/src/semantic/tasks
+/src/semantic/gulpfile.js
 
 # misc
 .DS_Store
