@@ -9,11 +9,11 @@ class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
-        return "Still deciding";
+        return;
       case false:
-        return "im loggedout";
+        return <a href="/auth/google">Login With Google</a>;
       default:
-        return "im logged in";
+        return <a>Logout</a>
     }
   }
   render() {
@@ -47,7 +47,9 @@ class Header extends Component {
             </Dropdown>
 
             <Menu.Item>
-              <Button primary> {this.renderContent()}</Button>
+              <Button basic color="blue">
+                {this.renderContent()}
+              </Button>
             </Menu.Item>
           </Menu.Menu>
         </Container>
@@ -55,7 +57,7 @@ class Header extends Component {
     );
   }
 }
-function mapStateToProps({auth}) {
+function mapStateToProps({ auth }) {
   return { auth };
 }
 
