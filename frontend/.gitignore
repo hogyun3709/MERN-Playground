@@ -8,6 +8,8 @@
 
 # production
 /build
+/src/semantic/dist
+/src/semantic/src
 
 # misc
 .DS_Store
