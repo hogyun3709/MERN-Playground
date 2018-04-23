@@ -1,14 +1,23 @@
 import React, { Component } from "react";
 import { Container, Button, Dropdown, Menu } from "semantic-ui-react";
+import { connect } from "react-redux";
 
-export default class Header extends Component {
+class Header extends Component {
   state = { activeItem: "home" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return "Still deciding";
+      case false:
+        return "im loggedout";
+      default:
+        return "im logged in";
+    }
+  }
   render() {
     const { activeItem } = this.state;
-
     return (
       <Menu size="large">
         <Container>
@@ -38,7 +47,7 @@ export default class Header extends Component {
             </Dropdown>
 
             <Menu.Item>
-              <Button primary>Sign Up</Button>
+              <Button primary> {this.renderContent()}</Button>
             </Menu.Item>
           </Menu.Menu>
         </Container>
@@ -46,3 +55,8 @@ export default class Header extends Component {
     );
   }
 }
+function mapStateToProps({auth}) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(Header);
