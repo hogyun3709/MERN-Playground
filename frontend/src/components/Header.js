@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Button, Dropdown, Menu } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Payments from "./Payments";
 
 class Header extends Component {
   state = { activeItem: "home" };
@@ -14,7 +15,17 @@ class Header extends Component {
       case false:
         return <a href="/auth/google">Login With Google</a>;
       default:
-        return <a href="/api/logout">Logout</a>
+        return <a href="/api/logout">Logout</a>;
+    }
+  }
+  paymentContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return;
+      default:
+        return <Payments />;
     }
   }
   render() {
@@ -23,11 +34,7 @@ class Header extends Component {
       <Menu size="large">
         <Container>
           <Menu.Item header>
-            <Link
-              to={this.props.auth ? '/surveys' : '/'}
-            >
-              DesignGround
-            </Link>
+            <Link to={this.props.auth ? "/surveys" : "/"}>DesignGround</Link>
           </Menu.Item>
           <Menu.Item
             name="aboutUs"
@@ -54,6 +61,7 @@ class Header extends Component {
             </Dropdown>
 
             <Menu.Item>
+              {this.paymentContent()}
               <Button basic color="blue">
                 {this.renderContent()}
               </Button>
