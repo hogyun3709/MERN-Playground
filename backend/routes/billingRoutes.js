@@ -8,6 +8,9 @@ module.exports = app => {
       description: "Service costs $5",
       source: req.body.id
     });
-    console.log(charge);
+    res.user.credits += 5;
+    const user = await req.user.save();
+
+    res.send(user);
   });
 };
