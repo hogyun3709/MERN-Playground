@@ -15,17 +15,15 @@ class Header extends Component {
       case false:
         return <a href="/auth/google">Login With Google</a>;
       default:
-        return <a href="/api/logout">Logout</a>;
-    }
-  }
-  paymentContent() {
-    switch (this.props.auth) {
-      case null:
-        return;
-      case false:
-        return;
-      default:
-        return <Payments />;
+        return [
+          <Payments key="1" />,
+          <Button key="2" basic color="orange" style={{ margin: "0 10px " }}>
+            "Credits:" {this.props.auth.credits}
+          </Button>,
+          <Button key="3" basic color="blue">
+            <a href="/api/logout">Logout</a>
+          </Button>
+        ];
     }
   }
   render() {
@@ -60,12 +58,7 @@ class Header extends Component {
               </Dropdown.Menu>
             </Dropdown>
 
-            <Menu.Item>
-              {this.paymentContent()}
-              <Button basic color="blue">
-                {this.renderContent()}
-              </Button>
-            </Menu.Item>
+            <Menu.Item>{this.renderContent()}</Menu.Item>
           </Menu.Menu>
         </Container>
       </Menu>
