@@ -6,8 +6,7 @@ import { Container } from "semantic-ui-react";
 
 import Header from "./Header";
 import Landing from "./Landing";
-
-const DashBoard = () => <h2>DashBoard</h2>;
+import Dashboard from "./Dashboard"
 const SurveyNew = () => <h2>SurveyNew</h2>;
 
 class App extends Component {
@@ -22,7 +21,7 @@ class App extends Component {
             <Header />
             <Container>
               <Route exact path="/" component={Landing} />
-              <Route exact path="/surveys" component={DashBoard} />
+            <Route exact path="/surveys" component={Dashboard} />
               <Route path="/surveys/new" component={SurveyNew} />
             </Container>
           </div>
