@@ -9,6 +9,9 @@ import reducers from './reducers'
 import './semantic/dist/semantic.min.css';
 import registerServiceWorker from './registerServiceWorker';
 
+//Dev purpose only::axios helper
+import axios from 'axios';
+window.axios = axios;
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
