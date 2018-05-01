@@ -18,7 +18,7 @@ class Header extends Component {
         return [
           <Payments key="1" />,
           <Button key="2" basic color="orange" style={{ margin: "0 10px " }}>
-            "Credits:" {this.props.auth.credits}
+            Credits: {this.props.auth.credits}
           </Button>,
           <Button key="3" basic color="blue">
             <a href="/api/logout">Logout</a>
