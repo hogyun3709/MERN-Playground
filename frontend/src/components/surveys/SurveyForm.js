@@ -2,14 +2,23 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Button } from "semantic-ui-react";
 import SurveyField from "./SurveyField";
+import _ from "lodash";
+
+//Create an object for iteration
+const FIELDS = [
+  { label: "Survey Title", name: "title" },
+  { label: "Subject Line", name: "subject" },
+  { label: "Email Body", name: "body" },
+  { label: "Recipient List", name: "emails" }
+];
 
 class SurveyForm extends Component {
-  renderFields(){
-    return (
-      <div>
-        <Field type="text" name="title" component={ SurveyField }/>
-      </div>
-    )
+  renderFields() {
+    return _.map(FIELDS, ({ label, name }) => {
+      return (
+        <Field key={name} component={SurveyField} type="text" label={label} name={name} />
+      );
+    });
   }
   render() {
     return (
