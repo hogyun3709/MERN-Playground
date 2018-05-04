@@ -6,8 +6,8 @@ import { Container } from "semantic-ui-react";
 
 import Header from "./Header";
 import Landing from "./Landing";
-import Dashboard from "./Dashboard"
-const SurveyNew = () => <h2>SurveyNew</h2>;
+import Dashboard from "./Dashboard";
+import SurveyNew from "./surveys/SurveyNew";
 
 class App extends Component {
   componentDidMount() {
