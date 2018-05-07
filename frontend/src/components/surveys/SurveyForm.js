@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
-import { Button, Divider, Segment, Icon } from "semantic-ui-react";
+import { Button, Divider, Segment, Icon, Form } from "semantic-ui-react";
 import SurveyField from "./SurveyField";
 import _ from "lodash";
 
@@ -32,7 +32,7 @@ class SurveyForm extends Component {
       <div>
         <Divider hidden/>
         <Segment padded="very" color="teal">
-          <form
+          <Form
             onSubmit={this.props.handleSubmit(values => console.log(values))}
           >
             {this.renderFields()}
@@ -40,14 +40,15 @@ class SurveyForm extends Component {
             <Link to="/surveys">
               <Button floated="left" negative>
                 Cancel
-                <Icon name="times" style={{ margin: "0 0 0 5px" }} />
+                <Icon name="remove" style={{ margin: "0 0 0 5px" }} />
               </Button>
             </Link>
             <Button floated="right" positive type="submit">
               Next
               <Icon name="arrow right" />
             </Button>
-          </form>
+            <Divider hidden/>
+        </Form>
         </Segment>
       </div>
     );

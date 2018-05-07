@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SurveyForm from "./SurveyForm";
-import { Grid, Divider} from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 
 class SurveyNew extends Component {
   render() {
