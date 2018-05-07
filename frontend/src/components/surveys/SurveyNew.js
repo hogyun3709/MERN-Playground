@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
-import SurveyForm from './SurveyForm';
+import React, { Component } from "react";
+import SurveyForm from "./SurveyForm";
+import { Grid, Divider} from "semantic-ui-react";
 
 class SurveyNew extends Component {
-  render(){
-    return(
+  render() {
+    return (
       <div>
-        <SurveyForm/>
+        <Grid centered>
+          <Grid.Column width={8}>
+            <SurveyForm />
+          </Grid.Column>
+        </Grid>
       </div>
-    )
+    );
   }
 }
 
-export default SurveyNew
+export default SurveyNew;
