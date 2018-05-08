@@ -7,7 +7,7 @@ export default ({ input, label, meta: { error, touched } }) => {
     <div>
       <Header size="medium">{label}</Header>
       <Input fluid {...input} />
-      {touched && error}
+      {/* {touched && error} */}
       {/* {meta.error} */}
       <br />
     </div>

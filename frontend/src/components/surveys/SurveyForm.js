@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
-import { Button, Divider, Segment, Icon, Form, Grid } from "semantic-ui-react";
+import {
+  Button,
+  Divider,
+  Segment,
+  Icon,
+  Form,
+  Grid,
+} from "semantic-ui-react";
 import SurveyField from "./SurveyField";
+import ErrorMessage from "./ErrorMessage";
 import _ from "lodash";
 
 //Create an object for iteration
@@ -43,6 +51,19 @@ class SurveyForm extends Component {
       );
     });
   }
+  renderErrorMessage() {
+    return _.map(FIELDS, ({ label, name }) => {
+      return (
+        <Field
+          key={name}
+          component={ErrorMessage}
+          type="text"
+          label={label}
+          name={name}
+        />
+      );
+    });
+  }
   render() {
     return (
       <div>
@@ -74,7 +95,7 @@ class SurveyForm extends Component {
           </Grid.Column>
           <Grid.Column width={4}>
             <Divider hidden />
-          <Segment hidden />
+            {this.renderErrorMessage()}
           </Grid.Column>
         </Grid>
       </div>
