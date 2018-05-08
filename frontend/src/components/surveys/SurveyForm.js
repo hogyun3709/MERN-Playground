@@ -1,16 +1,9 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Divider,
-  Segment,
-  Icon,
-  Form,
-  Grid,
-} from "semantic-ui-react";
+import { Button, Divider, Segment, Icon, Form, Grid } from "semantic-ui-react";
 import SurveyField from "./SurveyField";
-import validateEmails from "../../utils/validateEmails"
+import validateEmails from "../../utils/validateEmails";
 import ErrorMessage from "./ErrorMessage";
 import _ from "lodash";
 
@@ -74,9 +67,7 @@ class SurveyForm extends Component {
             <Divider hidden />
             <Segment padded="very" color="teal">
               <Form
-                onSubmit={this.props.handleSubmit(values =>
-                  console.log(values)
-                )}
+                onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}
               >
                 {this.renderFields()}
                 <Divider />
@@ -106,13 +97,12 @@ class SurveyForm extends Component {
 
 function validate(values) {
   const errors = {};
-  errors.emails = validateEmails(values.emails || '');
+  errors.emails = validateEmails(values.emails || "");
   _.each(FIELDS, ({ name, errorMessage }) => {
     if (!values[name]) {
       errors[name] = errorMessage;
     }
   });
-
 
   return errors;
 }
