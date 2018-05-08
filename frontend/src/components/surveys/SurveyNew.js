@@ -1,18 +1,34 @@
 import React, { Component } from "react";
 import SurveyForm from "./SurveyForm";
-import { Grid } from "semantic-ui-react";
+import SurveyFromReview from "./SurveyFormReview";
+// import { Grid } from "semantic-ui-react";
 
 class SurveyNew extends Component {
-  render() {
+  // constructor(props){
+  //   super(props);
+  //
+  //   this.state = { new: true};
+  // }
+
+  state = { showFormReview: false };
+
+  renderContent() {
+    if (this.state.showFormReview) {
+      return (
+        <SurveyFromReview
+          onCancel={() => this.setState({ showFormReview: false })}
+        />
+      );
+    }
     return (
-      <div>
-        <Grid centered>
-          <Grid.Column width={8}>
-            <SurveyForm />
-          </Grid.Column>
-        </Grid>
-      </div>
+      <SurveyForm
+        onSurveySubmit={() => this.setState({ showFormReview: true })}
+      />
     );
+  }
+
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 
