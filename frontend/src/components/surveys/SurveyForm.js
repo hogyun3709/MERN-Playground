@@ -6,30 +6,9 @@ import SurveyField from "./SurveyField";
 import validateEmails from "../../utils/validateEmails";
 import ErrorMessage from "./ErrorMessage";
 import _ from "lodash";
+import FIELDS from "./formFields"
 
 //Create an object for iteration
-const FIELDS = [
-  {
-    label: "Survey Title",
-    name: "title",
-    errorMessage: "Please provide Survey Title"
-  },
-  {
-    label: "Subject Line",
-    name: "subject",
-    errorMessage: "Please provide Subject Line"
-  },
-  {
-    label: "Email Body",
-    name: "body",
-    errorMessage: "Please provide Email Body"
-  },
-  {
-    label: "Recipient List",
-    name: "emails",
-    errorMessage: "Please provide Recipient List"
-  }
-];
 
 class SurveyForm extends Component {
   renderFields() {
