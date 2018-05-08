@@ -1,10 +1,15 @@
-import React from 'react';
-import { Input } from "semantic-ui-react";
+import React from "react";
+import { Input, Header } from "semantic-ui-react";
 
-export default ({input}) => {
+export default ({ input, label, meta: { error, touched } }) => {
+  // console.log(meta);
   return (
     <div>
-      <Input {...input}/>
+      <Header size="medium">{label}</Header>
+      <Input fluid {...input} />
+      {touched && error}
+      {/* {meta.error} */}
+      <br />
     </div>
-  )
-}
+  );
+};
