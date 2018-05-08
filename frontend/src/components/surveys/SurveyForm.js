@@ -1,16 +1,32 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
-import { Button, Divider, Segment, Icon, Form } from "semantic-ui-react";
+import { Button, Divider, Segment, Icon, Form, Grid } from "semantic-ui-react";
 import SurveyField from "./SurveyField";
 import _ from "lodash";
 
 //Create an object for iteration
 const FIELDS = [
-  { label: "Survey Title", name: "title" },
-  { label: "Subject Line", name: "subject" },
-  { label: "Email Body", name: "body" },
-  { label: "Recipient List", name: "emails" }
+  {
+    label: "Survey Title",
+    name: "title",
+    errorMessage: "Please provide Survey Title"
+  },
+  {
+    label: "Subject Line",
+    name: "subject",
+    errorMessage: "Please provide Subject Line"
+  },
+  {
+    label: "Email Body",
+    name: "body",
+    errorMessage: "Please provide Email Body"
+  },
+  {
+    label: "Recipient List",
+    name: "emails",
+    errorMessage: "Please provide Recipient List"
+  }
 ];
 
 class SurveyForm extends Component {
@@ -30,41 +46,53 @@ class SurveyForm extends Component {
   render() {
     return (
       <div>
-        <Divider hidden/>
-        <Segment padded="very" color="teal">
-          <Form
-            onSubmit={this.props.handleSubmit(values => console.log(values))}
-          >
-            {this.renderFields()}
-            <Divider />
-            <Link to="/surveys">
-              <Button floated="left" negative>
-                Cancel
-                <Icon name="remove" style={{ margin: "0 0 0 5px" }} />
-              </Button>
-            </Link>
-            <Button floated="right" positive type="submit">
-              Next
-              <Icon name="arrow right" />
-            </Button>
-            <Divider hidden/>
-        </Form>
-        </Segment>
+        <Grid centered>
+          <Grid.Column width={4} />
+          <Grid.Column width={8}>
+            <Divider hidden />
+            <Segment padded="very" color="teal">
+              <Form
+                onSubmit={this.props.handleSubmit(values =>
+                  console.log(values)
+                )}
+              >
+                {this.renderFields()}
+                <Divider />
+                <Link to="/surveys">
+                  <Button floated="left" negative>
+                    Cancel
+                    <Icon name="remove" style={{ margin: "0 0 0 5px" }} />
+                  </Button>
+                </Link>
+                <Button floated="right" positive type="submit">
+                  Next
+                  <Icon name="arrow right" />
+                </Button>
+                <Divider hidden />
+              </Form>
+            </Segment>
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <Divider hidden />
+          <Segment hidden />
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }
 }
 
-function validate(values){
+function validate(values) {
   const errors = {};
 
-  if(!values.title){
-    errors.title = 'You must provide a title'
-  }
+  _.each(FIELDS, ({ name, errorMessage }) => {
+    if (!values[name]) {
+      errors[name] = errorMessage;
+    }
+  });
 
-  return errors
+  return errors;
 }
-
 
 export default reduxForm({
   validate,

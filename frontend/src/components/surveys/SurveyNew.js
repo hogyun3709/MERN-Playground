@@ -6,11 +6,7 @@ class SurveyNew extends Component {
   render() {
     return (
       <div>
-        <Grid centered>
-          <Grid.Column width={8}>
-            <SurveyForm />
-          </Grid.Column>
-        </Grid>
+        <SurveyForm />
       </div>
     );
   }
