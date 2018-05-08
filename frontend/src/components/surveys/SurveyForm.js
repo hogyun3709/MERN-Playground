@@ -10,6 +10,7 @@ import {
   Grid,
 } from "semantic-ui-react";
 import SurveyField from "./SurveyField";
+import validateEmails from "../../utils/validateEmails"
 import ErrorMessage from "./ErrorMessage";
 import _ from "lodash";
 
@@ -105,12 +106,13 @@ class SurveyForm extends Component {
 
 function validate(values) {
   const errors = {};
-
+  errors.emails = validateEmails(values.emails || '');
   _.each(FIELDS, ({ name, errorMessage }) => {
     if (!values[name]) {
       errors[name] = errorMessage;
     }
   });
+
 
   return errors;
 }
