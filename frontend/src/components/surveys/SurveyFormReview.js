@@ -1,24 +1,23 @@
+import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import {
   Button,
   Divider,
   Segment,
-  Icon,
   Form,
   Grid,
-  Header,
-  Input
+  Header
 } from "semantic-ui-react";
 import formFields from "./formFields";
-import _ from "lodash";
+import * as actions from "../../actions";
 
-const SurveyFormReview = ({ onCancel, formValues }) => {
+const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
   const reviewFields = _.map(formFields, field => {
     return (
       <div key={field.name}>
         <Header size="medium">{field.label}</Header>
-        <Segment size="tiny" fluid>
+        <Segment size="tiny" fluid="true">
           {formValues[field.name]}
         </Segment>
         <br />
@@ -37,11 +36,21 @@ const SurveyFormReview = ({ onCancel, formValues }) => {
             <Form>
               {reviewFields}
               <Divider />
-              <Button negative floated="left" onClick={onCancel}>
-                <Icon name="arrow left" />
-                Go Back
-              </Button>
-
+              <Button
+                negative
+                floated="left"
+                onClick={onCancel}
+                icon="arrow left"
+                content="Go Back"
+                type="button"
+              />
+              <Button
+                primary
+                floated="right"
+                content="Submit"
+                icon="check"
+                onClick={() => submitSurvey(formValues)}
+              />
               <Divider hidden />
             </Form>
           </Segment>
@@ -58,4 +67,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(SurveyFormReview);
+export default connect(mapStateToProps, actions)(SurveyFormReview);

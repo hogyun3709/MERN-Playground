@@ -6,7 +6,7 @@ import SurveyField from "./SurveyField";
 import validateEmails from "../../utils/validateEmails";
 import ErrorMessage from "./ErrorMessage";
 import _ from "lodash";
-import FIELDS from "./formFields"
+import FIELDS from "./formFields";
 
 //Create an object for iteration
 
@@ -51,10 +51,13 @@ class SurveyForm extends Component {
                 {this.renderFields()}
                 <Divider />
                 <Link to="/surveys">
-                  <Button floated="left" negative>
-                    Cancel
-                    <Icon name="remove" style={{ margin: "0 0 0 5px" }} />
-                  </Button>
+                  <Button
+                    floated="left"
+                    negative
+                    icon="remove"
+                    content="Cancel"
+
+                  />
                 </Link>
                 <Button floated="right" positive type="submit">
                   Next
