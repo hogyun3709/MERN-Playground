@@ -42,6 +42,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
                 onClick={onCancel}
                 icon="arrow left"
                 content="Go Back"
+                type="button"
               />
               <Button
                 primary

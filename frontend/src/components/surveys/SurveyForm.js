@@ -56,6 +56,7 @@ class SurveyForm extends Component {
                     negative
                     icon="remove"
                     content="Cancel"
+
                   />
                 </Link>
                 <Button floated="right" positive type="submit">
