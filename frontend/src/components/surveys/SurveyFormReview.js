@@ -1,6 +1,7 @@
 import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import {
   Button,
   Divider,
@@ -12,7 +13,7 @@ import {
 import formFields from "./formFields";
 import * as actions from "../../actions";
 
-const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
+const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
   const reviewFields = _.map(formFields, field => {
     return (
       <div key={field.name}>
@@ -49,7 +50,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
                 floated="right"
                 content="Submit"
                 icon="check"
-                onClick={() => submitSurvey(formValues)}
+                onClick={() => submitSurvey(formValues, history)}
               />
               <Divider hidden />
             </Form>
@@ -67,4 +68,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, actions)(SurveyFormReview);
+export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));
