@@ -8,7 +8,7 @@ class SurveyList extends Component {
     this.props.fetchSurveys();
   }
   renderSurveys() {
-    return this.props.surveys.map(survey => {
+    return this.props.surveys.reverse().map(survey => {
       return (
         <Card fluid key={survey._id}>
           <Card.Content>
