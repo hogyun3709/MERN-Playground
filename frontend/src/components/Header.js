@@ -59,6 +59,12 @@ class Header extends Component {
             </Dropdown>
 
             <Menu.Item>{this.renderContent()}</Menu.Item>
+            <Menu.Item>
+              <Link to={"/login"}>Login</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to={"/signup"}>Signup</Link>
+            </Menu.Item>
           </Menu.Menu>
         </Container>
       </Menu>
